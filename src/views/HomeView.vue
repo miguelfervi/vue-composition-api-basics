@@ -14,9 +14,20 @@ import { ref } from 'vue'
 export default {
   setup() {
     const counter = ref(0)
+    
+    const increaseCounter = () => {
+      counter.value++
+    }
+
+    const decreaseCounter = () => {
+      counter.value--
+    }
+
 
     return {
-      counter
+      counter,
+      increaseCounter,
+       decreaseCounter
     }
   }
 }
