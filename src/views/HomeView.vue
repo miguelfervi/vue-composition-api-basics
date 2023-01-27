@@ -18,10 +18,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 
-    const counter = ref(0),
-     counterTitle = ref('My Counter')
+    // const counter = ref(0),
+    //  counterTitle = ref('My Counter')
 
     const counterData = reactive({
       count: 0,
