@@ -8,7 +8,21 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+
+    const counter = ref(0)
+    
+    const increaseCounter = () => {
+      counter.value++
+    }
+
+    const decreaseCounter = () => {
+      counter.value--
+    }
+</script>
+
+<!-- <script>
 import { ref } from 'vue'
 
 export default {
@@ -31,7 +45,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
  <!-- <script>
 export default {
