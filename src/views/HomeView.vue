@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch } from 'vue'
+import { reactive, computed, watch, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
 
   const appTitle = 'My Amazing Counter App'
     // const counter = ref(0),
@@ -35,7 +35,7 @@ import { reactive, computed, watch } from 'vue'
       title: 'My Counter'
     })
 
-    watch(() => counterData.count, (newCount, oldCount) => {
+    watch(() => counterData.count, (newCount) => {
       if(newCount === 20) {
         alert('Way to go! You made it to 20')
       }
@@ -53,6 +53,22 @@ import { reactive, computed, watch } from 'vue'
     const decreaseCounter = amount => {
       counterData.count -= amount
     }
+
+    onBeforeMount(() => {
+      console.log('onBeforeMount')
+    }),
+
+    onMounted(() => {
+      console.log('Mounted')
+    }),
+
+    onBeforeUnmount(() => {
+      console.log('Before Unmounted')
+    }),
+
+    onUnmounted(() => {
+      console.log('Unmounted')
+    })
 </script>
 
 <!-- <script>
@@ -72,6 +88,12 @@ export default {
     count(newCound, oldCount) {
       if(newCount == 20) alert('asasad')
     }
+  },
+  mounted() {
+    // do something
+  },
+  unmonted() {
+
   }
 
 }
