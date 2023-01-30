@@ -24,11 +24,13 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
+import { reactive, computed, watch, onMounted } from 'vue';
 
   const appTitle = 'My Amazing Counter App'
-    // const counter = ref(0),
-    //  counterTitle = ref('My Counter')
+
+    onMounted(() => {
+      console.log('Do stuff')
+    })
 
     const counterData = reactive({
       count: 0,
@@ -54,94 +56,10 @@ import { reactive, computed, watch, onBeforeMount, onBeforeUnmount, onMounted, o
       counterData.count -= amount
     }
 
-    onBeforeMount(() => {
-      console.log('onBeforeMount')
-    }),
-
-    onMounted(() => {
-      console.log('Mounted')
-    }),
-
-    onBeforeUnmount(() => {
-      console.log('Before Unmounted')
-    }),
-
-    onUnmounted(() => {
-      console.log('Unmounted')
+    onMounted(()=> {
+      console.log('do stuff counter')
     })
 </script>
-
-<!-- <script>
-export default {
-  data() {
-    return {
-      count: 0
-    }
-  },
-  computed: {
-    myComputedProperty() {
-      // perform logic based on a data property
-      return 'myProperty'
-    }
-  },
-  watch: {
-    count(newCound, oldCount) {
-      if(newCount == 20) alert('asasad')
-    }
-  },
-  mounted() {
-    // do something
-  },
-  unmonted() {
-
-  }
-
-}
-</script> -->
-
-<!-- <script>
-import { ref } from 'vue'
-
-export default {
-  setup() {
-    const counter = ref(0)
-    
-    const increaseCounter = () => {
-      counter.value++
-    }
-
-    const decreaseCounter = () => {
-      counter.value--
-    }
-
-
-    return {
-      counter,
-      increaseCounter,
-       decreaseCounter
-    }
-  }
-}
-</script> -->
-
- <!-- <script>
-export default {
-  data() {
-    return {
-      counter: 0
-    }
-  },
-  methods: {
-    increaseCounter() {
-      this.counter++
-    },
-    decreaseCounter() {
-      this.counter--
-    }
-  }
-}
-
-</script> -->
 
 
 <style>
