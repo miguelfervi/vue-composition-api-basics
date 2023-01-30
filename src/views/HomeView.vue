@@ -17,7 +17,7 @@
 
     <div class="edit">
       <h4>Edit counter title: </h4>
-      <input v-model="counterData.title" type="text">
+      <input v-model="counterData.title" type="text" v-autofocus>
     </div>
 
   </div>
@@ -25,7 +25,7 @@
 
 <script setup>
 import { reactive, computed, watch, onMounted } from 'vue';
-
+import { vAutofocus} from '@/directives/vAutofocus'
   const appTitle = 'My Amazing Counter App'
 
     onMounted(() => {
