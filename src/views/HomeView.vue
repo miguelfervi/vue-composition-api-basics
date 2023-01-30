@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, computed, watch } from 'vue'
 
   const appTitle = 'My Amazing Counter App'
     // const counter = ref(0),
@@ -33,6 +33,12 @@ import { reactive, computed } from 'vue'
     const counterData = reactive({
       count: 0,
       title: 'My Counter'
+    })
+
+    watch(() => counterData.count, (newCount, oldCount) => {
+      if(newCount === 20) {
+        alert('Way to go! You made it to 20')
+      }
     })
 
     const oddOrEven = computed( () => {
@@ -51,10 +57,20 @@ import { reactive, computed } from 'vue'
 
 <!-- <script>
 export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
   computed: {
     myComputedProperty() {
       // perform logic based on a data property
       return 'myProperty'
+    }
+  },
+  watch: {
+    count(newCound, oldCount) {
+      if(newCount == 20) alert('asasad')
     }
   }
 
