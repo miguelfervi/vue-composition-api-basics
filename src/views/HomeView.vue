@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch, onMounted } from 'vue';
+import { ref, reactive, computed, watch, onMounted, nextTick } from 'vue';
 import { vAutofocus} from '@/directives/vAutofocus'
   const appTitle = 'My Amazing Counter App'
 
@@ -50,8 +50,10 @@ import { vAutofocus} from '@/directives/vAutofocus'
       else return 'odd'
     })
     
-    const increaseCounter = amount => {
+    const increaseCounter = async (amount, e) => {
       counterData.count += amount
+      await nextTick()
+      console.log('do something')
     }
 
     const decreaseCounter = amount => {
