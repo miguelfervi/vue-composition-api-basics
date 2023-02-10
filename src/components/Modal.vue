@@ -1,12 +1,23 @@
 <template>
     <teleport to=".modals-container">
-            <div class="modal" v-if="showModal">
-                <h1>This is a modal</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque veritatis porro ea nemo debitis totam ab nisi saepe neque repellat repellendus fuga, ullam quod voluptatem cupiditate magnam error pariatur recusandae.</p>
-                <button @click="showModal = false">Hide modal</button>
+            <div class="modal">
+                <h1>{{ title }}</h1>
+                <slot></slot>
+                <button>Hide modal</button>
             </div>
         </teleport>
 </template>
+
+
+<script setup>
+
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'No title specified'
+    }
+})
+</script>
 
 
 <style>
