@@ -11,6 +11,7 @@
     <component
       v-model="showModal"
       :is="showDarkModals ? ModalDark : Modal"
+      :userData="userData"
       title="My modal title (via prop)"
     >
       <p>
